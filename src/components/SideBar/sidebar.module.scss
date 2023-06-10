@@ -1,0 +1,19 @@
+.sidebar {
+  display: none;
+  display: flex;
+  position: fixed;
+  left: 0;
+  z-index: 0;
+  padding-top: 4rem;
+  transition-duration: 75ms;
+  font-weight: 400;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 16rem;
+  height: 100%;
+  background-color: #FFFFFF;
+
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+}

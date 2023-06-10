@@ -25,13 +25,23 @@ module.exports = {
         },
       },
       {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+      {
         test: /\.(scss|sass)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx', '.sass', 'scss'],
   },
   devServer: {
     static: {

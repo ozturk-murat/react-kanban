@@ -1,9 +1,12 @@
 import React from "react";
+import TopBar from "./components/TopBar/TopBar";
+import SideBar from "./components/SideBar/SideBar";
 
 function App (){
     return (
         <div>
-            <h1>Kanban App</h1>
+            <TopBar/>
+            <SideBar/>
         </div>
     )
 }
