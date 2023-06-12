@@ -1,0 +1,48 @@
+import React from "react";
+import styles from "./column.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import TaskCard from "../TaskCard/TaskCard";
+import { dragTask } from "../../redux/features/boardsSlice";
+
+function Column({ colIndex }) {
+  const dispatch = useDispatch();
+  const boards = useSelector((state) => state.boards);
+  const col = boards[0].columns.find((column, index) => index === colIndex);
+
+  const handleOnDrop = (e) => {
+    const { prevColIndex, taskIndex } = JSON.parse(
+      e.dataTransfer.getData("text")
+    );
+
+    if (colIndex !== prevColIndex) {
+      dispatch(dragTask({ colIndex, prevColIndex, taskIndex }));
+    }
+  };
+
+  const handleOnDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <div
+      className={styles.column}
+      onDrop={handleOnDrop}
+      onDragOver={handleOnDragOver}
+    >
+      <div className={styles.column__header}>
+        <span>{col.name}</span>
+        <div className={styles.column__header__total}>
+          <span>{col.tasks.length}</span>
+        </div>
+      </div>
+      <div className={styles.column__divider}></div>
+      <div className={styles.column__cards}>
+        {col.tasks.map((task, index) => (
+          <TaskCard key={index} taskIndex={index} colIndex={colIndex} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Column;

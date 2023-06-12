@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = 'dashboard';
+const initialState = '/';
 
 const activePageSlice = createSlice({
     name: "activePage",

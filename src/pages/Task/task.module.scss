@@ -1,0 +1,20 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 2.75rem;
+  gap: 20px;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 1.25rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    grid-template-columns: 1fr;
+    margin: 0.25rem;
+  }
+}
+
+.wrapper > * {
+  grid-column: span 1;
+}

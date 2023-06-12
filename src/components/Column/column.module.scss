@@ -1,0 +1,36 @@
+.column {
+    width: 100%;
+    min-height: 35vh;
+    border: 1px solid rgba($color: #001747, $alpha: 0.1);
+    border-radius: 0.50rem;
+    padding: 1.50rem;
+    background-color: #FFFFFF;
+
+    &__header {
+        height: 2vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &__total {
+            background-color: rgba($color: #2D70FD, $alpha: 0.3);
+            color: #2D70FD;
+            border-radius: 0.25rem;
+            padding-left: 5px;
+            padding-right: 5px;
+
+        }
+    }
+
+    &__divider {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #f6f9fb;
+        transform: rotate(-180deg);
+    }
+
+    &__cards {
+        min-height: 32vw;
+        display: flex;
+        flex-direction: column;
+    }
+}

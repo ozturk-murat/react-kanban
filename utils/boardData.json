@@ -6,7 +6,7 @@
           "name": "Todo",
           "tasks": [
             {
-              "title": "New Header design",
+              "title": "Todo object",
               "description": "",
               "status": "Todo",
               "scrumPoint": 6,
@@ -16,7 +16,15 @@
         },
         {
           "name": "Done",
-          "tasks": []
+          "tasks": [
+            {
+              "title": "Done Object",
+              "description": "",
+              "status": "Done",
+              "scrumPoint": 6,
+              "owner": "murat"
+            }
+          ]
         }
       ]
     }
