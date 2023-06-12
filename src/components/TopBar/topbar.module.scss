@@ -5,7 +5,7 @@
   padding: 0.75rem;
   background-color: #ffffff;
   width: 100vw;
-  border-bottom: 2px solid #F6F9FB;
+  border-bottom: 2px solid #f6f9fb;
 
   @media (min-width: 1024px) {
     padding-left: 0.125rem;
@@ -38,6 +38,12 @@
 
         @media (min-width: 768px) {
           margin-right: 5rem;
+        }
+
+        a {
+          :hover {
+            text-decoration: none !important;
+          }
         }
 
         &__divider {
@@ -144,8 +150,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
         font-size: 40px;
-        color:  #2d70fd;
+        color: #2d70fd;
       }
     }
   }

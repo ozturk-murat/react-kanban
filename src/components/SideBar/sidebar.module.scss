@@ -45,6 +45,46 @@
         margin-top: 0.25rem;
         background-color: #ffffff;
 
+        &__active {
+          border-radius: 0.25rem;
+          background-color: #2d70fd;
+          transition: background-color 0.3s;
+
+          span {
+            color: #ffffff !important;
+          }
+
+          :hover {
+            background-color: #2d70fd !important;
+          }
+
+          &__link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center !important;
+            padding: 0.5rem;
+            color: #111827;
+            font-size: 0, 8125;
+            line-height: 1.5rem;
+            align-items: center;
+            border-radius: 0.5rem;
+          }
+        }
+
+        &__link {
+          display: flex;
+          padding: 0.5rem;
+          color: #111827;
+          font-size: 0, 8125;
+          line-height: 1.5rem;
+          align-items: center;
+          border-radius: 0.5rem;
+
+          &__icon {
+            display: flex;
+          }
+        }
+
         ul {
           padding-bottom: 0.5rem;
           margin-top: 0.5rem;
@@ -90,9 +130,44 @@
         padding-right: 0.5rem;
         background-color: #ffffff;
 
-        &__divider {
-            border-top: 1px solid #F6F9FB;
-            margin: 10px;
+        &__active {
+          border-radius: 0.25rem;
+          background-color: #2d70fd;
+          transition: background-color 0.3s;
+
+          span {
+            color: #ffffff !important;
+          }
+
+          :hover {
+            background-color: #2d70fd !important;
+          }
+
+          &__link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center !important;
+            padding: 0.5rem;
+            color: #111827;
+            font-size: 0, 8125;
+            line-height: 1.5rem;
+            align-items: center;
+            border-radius: 0.5rem;
+          }
+        }
+
+        &__link {
+          display: flex;
+          padding: 0.5rem;
+          color: #111827;
+          font-size: 0, 8125;
+          line-height: 1.5rem;
+          align-items: center;
+          border-radius: 0.5rem;
+
+          &__icon {
+            display: flex;
+          }
         }
 
         ul {
@@ -121,6 +196,11 @@
         span {
           margin-left: 0.75rem;
           color: #405175;
+        }
+
+        &__divider {
+          border-top: 1px solid #f6f9fb;
+          margin: 10px;
         }
       }
     }

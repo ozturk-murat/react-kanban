@@ -1,96 +1,154 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./sidebar.module.scss";
-import { FiHome } from "react-icons/fi";
-import { BsChat, BsCardChecklist, BsPlusLg, BsChatLeftText } from "react-icons/bs";
-import { SlCompass } from "react-icons/sl";
-import { IoIosRepeat } from "react-icons/io";
-import { VscBell } from "react-icons/vsc"
-import UserImg from "./../../../public/images/pp.png"; 
-import TeamImg from "./../../../public/images/team.png"; 
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setActivePage } from "../../redux/features/slice";
 
+//Icons
+import { RxDotFilled } from "react-icons/rx";
+import UserImg from "./../../../public/images/pp.png";
+import TeamImg from "./../../../public/images/team.png";
+
+//Utils
+import {sidebarTopData, sidebarBottomData} from "../../../utils/sideBarData";
 
 
 function SideBar() {
+  const activePage = useSelector((state) => state.activePage);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const savedActivePage = sessionStorage.getItem('activePage');
+    if (savedActivePage) {
+      dispatch(setActivePage(savedActivePage));
+    }
+  }, [dispatch]);
+
+  const handleSetActivePage = (page) => {
+    dispatch(setActivePage(page));
+    sessionStorage.setItem('activePage', page);
+  };
+
   return (
     <div id="sidebar" className={styles.sidebar}>
       <div className={styles.sidebar__inside}>
         <div className={styles.sidebar__inside__top}>
           <div className={styles.sidebar__inside__top__list}>
             <ul>
-              <li>
-                <a href="#">
-                  <FiHome fontSize={20} color="#405175" />
-                  <span >Dashboard</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <BsChat fontSize={20} color="#405175" />
-                  <span >Feedback</span>
-                </a>
-              </li>
-
-              <li>
-                <a href="#">
-                  <BsCardChecklist fontSize={20} color="#405175" />
-                  <span >Task</span>
-                </a>
-              </li>
-
-              <li>
-                <a href="#">
-                  <SlCompass fontSize={20} color="#405175" />
-                  <span >Roadmap</span>
-                </a>
-              </li>
-
-              <li>
-                <a href="#">
-                  <IoIosRepeat fontSize={20} color="#405175" />
-                  <span >Changelog</span>
-                </a>
-              </li>
+              {sidebarTopData.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <li
+                    key={item.id}
+                    className={
+                      activePage === item.path
+                        ? `${styles.sidebar__inside__top__list__active}`
+                        : null
+                    }
+                  >
+                    <Link
+                      onClick={() => handleSetActivePage(item.path)}
+                      to={item.path}
+                      className={
+                        activePage === item.path
+                          ? `${styles.sidebar__inside__top__list__active__link}`
+                          : `${styles.sidebar__inside__top__list__link}`
+                      }
+                    >
+                      <div
+                        className={
+                          styles.sidebar__inside__top__list__link__icon
+                        }
+                      >
+                        <IconComponent
+                          fontSize={20}
+                          color={activePage === item.path ? "white" : "#405175"}
+                        />
+                        <span>{item.name}</span>
+                      </div>
+                      {activePage === item.path && (
+                        <div
+                          className={
+                            styles.sidebar__inside__top__list__link__icon
+                          }
+                        >
+                          <RxDotFilled color="#FFF" />
+                        </div>
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
         <div className={styles.sidebar__inside__bottom}>
           <div className={styles.sidebar__inside__bottom__list}>
             <ul>
-              <li>
-                <a href="#">
-                  <BsPlusLg fontSize={20} color="#405175" />
-                  <span >Invite People</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <BsChatLeftText fontSize={20} color="#405175" />
-                  <span >Help & Community</span>
-                </a>
-              </li>
+            {sidebarBottomData.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <li
+                    key={item.id}
+                    className={
+                      activePage === item.path
+                        ? `${styles.sidebar__inside__bottom__list__active}`
+                        : null
+                    }
+                  >
+                    <Link
+                      onClick={() => handleSetActivePage(item.path)}
+                      to={item.path}
+                      className={
+                        activePage === item.path
+                          ? `${styles.sidebar__inside__bottom__list__active__link}`
+                          : `${styles.sidebar__inside__bottom__list__link}`
+                      }
+                    >
+                      <div
+                        className={
+                          styles.sidebar__inside__bottom__list__link__icon
+                        }
+                      >
+                        <IconComponent
+                          fontSize={20}
+                          color={activePage === item.path ? "white" : "#405175"}
+                        />
+                        <span>{item.name}</span>
+                      </div>
+                      {activePage === item.path && (
+                        <div
+                          className={
+                            styles.sidebar__inside__bottom__list__link__icon
+                          }
+                        >
+                          <RxDotFilled color="#FFF" />
+                        </div>
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
 
-              <li>
-                <a href="#">
-                  <VscBell fontSize={20} color="#405175" />
-                  <span >Notifications</span>
-                </a>
-              </li>
-
-              <div className={styles.sidebar__inside__bottom__list__divider}></div>
+              <div
+                className={styles.sidebar__inside__bottom__list__divider}
+              ></div>
 
               <li>
                 <a href="#">
                   <img src={UserImg} />
-                  <span >Neil Larkins</span>
+                  <span>Neil Larkins</span>
                 </a>
               </li>
 
-              <div className={styles.sidebar__inside__bottom__list__divider}></div>
+              <div
+                className={styles.sidebar__inside__bottom__list__divider}
+              ></div>
 
               <li>
                 <a href="#">
                   <img src={TeamImg} />
-                  <span >Neil Larkins</span>
+                  <span>Epodbay Inc.</span>
                 </a>
               </li>
             </ul>

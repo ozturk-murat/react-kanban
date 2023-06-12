@@ -1,0 +1,24 @@
+{
+  "boards": [
+    {
+      "columns": [
+        {
+          "name": "Todo",
+          "tasks": [
+            {
+              "title": "New Header design",
+              "description": "",
+              "status": "Todo",
+              "scrumPoint": 6,
+              "owner": "murat"
+            }
+          ]
+        },
+        {
+          "name": "Done",
+          "tasks": []
+        }
+      ]
+    }
+  ]
+}
