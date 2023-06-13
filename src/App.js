@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TopBar from "./components/TopBar/TopBar";
 import SideBar from "./components/SideBar/SideBar";
 import Dashboard from "./pages/Dashboard/Dashboard"
-import Task from "./Pages/Task/Task";
+import Task from "./pages/Task/Task";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import FeedBack from "./pages/Feedback/Feedback";
-import RoadMap from "./pages/RoadMap/RoadMap";
+import RoadMap from "./pages/Roadmap/Roadmap";
 import Changelog from "./pages/Changelog/Changelog";
 import InvitePeople from "./pages/InvitePeople/InvitePeople";
 import Notifications from "./pages/Notifications/Notifications";
