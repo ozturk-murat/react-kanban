@@ -24,7 +24,7 @@
               "storyPoint": 5,
               "owner": {
                 "id": "jane",
-                "name": "Jane"
+                "name": "jane"
               },
               "taskId": "TASK-03",
               "priority": "medium"
@@ -36,7 +36,7 @@
               "storyPoint": 2,
               "owner": {
                 "id": "alex",
-                "name": "Alex"
+                "name": "alex"
               },
               "taskId": "TASK-03",
               "priority": "high"
@@ -65,7 +65,7 @@
               "storyPoint": 3,
               "owner": {
                 "id": "jane",
-                "name": "Jane"
+                "name": "jane"
               },
               "taskId": "TASK-03",
               "priority": "low"
@@ -77,7 +77,7 @@
               "storyPoint": 6,
               "owner": {
                 "id": "alex",
-                "name": "Alex"
+                "name": "alex"
               },
               "taskId": "TASK-03",
               "priority": "high"
