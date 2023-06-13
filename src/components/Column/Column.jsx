@@ -3,6 +3,7 @@ import styles from "./column.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import TaskCard from "../TaskCard/TaskCard";
 import { dragTask } from "../../redux/features/boardsSlice";
+import { FaDotCircle, FaCheckCircle } from "react-icons/fa";
 
 function Column({ colIndex }) {
   const dispatch = useDispatch();
@@ -30,7 +31,10 @@ function Column({ colIndex }) {
       onDragOver={handleOnDragOver}
     >
       <div className={styles.column__header}>
+        <div className={styles.column__header__board_name}>
+        {col.name === "Done" ? <FaCheckCircle color="green" /> : <FaDotCircle color="red" />}
         <span>{col.name}</span>
+        </div>
         <div className={styles.column__header__total}>
           <span>{col.tasks.length}</span>
         </div>

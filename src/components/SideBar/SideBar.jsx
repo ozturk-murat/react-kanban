@@ -6,7 +6,7 @@ import { setActivePage } from "../../redux/features/slice";
 
 //Icons
 import { RxDotFilled } from "react-icons/rx";
-import UserImg from "./../../../public/images/pp.png";
+import UserImg from "./../../../public/images/neil.png";
 import TeamImg from "./../../../public/images/team.png";
 
 //Utils

@@ -6,11 +6,40 @@
           "name": "Todo",
           "tasks": [
             {
-              "title": "Todo object",
-              "description": "",
+              "title": "Task 1",
+              "description": "Do something",
               "status": "Todo",
-              "scrumPoint": 6,
-              "owner": "murat"
+              "storyPoint": 3,
+              "owner": {
+                "id": "neil",
+                "name": "neil"
+              },
+              "taskId": "TASK-03",
+              "priority": "low"
+            },
+            {
+              "title": "Task 2",
+              "description": "Complete the report",
+              "status": "Todo",
+              "storyPoint": 5,
+              "owner": {
+                "id": "jane",
+                "name": "Jane"
+              },
+              "taskId": "TASK-03",
+              "priority": "medium"
+            },
+            {
+              "title": "Task 3",
+              "description": "Prepare presentation",
+              "status": "Todo",
+              "storyPoint": 2,
+              "owner": {
+                "id": "alex",
+                "name": "Alex"
+              },
+              "taskId": "TASK-03",
+              "priority": "high"
             }
           ]
         },
@@ -18,11 +47,40 @@
           "name": "Done",
           "tasks": [
             {
-              "title": "Done Object",
-              "description": "",
+              "title": "Task 4",
+              "description": "Review code",
               "status": "Done",
-              "scrumPoint": 6,
-              "owner": "murat"
+              "storyPoint": 4,
+              "owner": {
+                "id": "neil",
+                "name": "neil"
+              },
+              "taskId": "TASK-03",
+              "priority": "medium"
+            },
+            {
+              "title": "Task 5",
+              "description": "Test functionality",
+              "status": "Done",
+              "storyPoint": 3,
+              "owner": {
+                "id": "jane",
+                "name": "Jane"
+              },
+              "taskId": "TASK-03",
+              "priority": "low"
+            },
+            {
+              "title": "Task 6",
+              "description": "Deploy application",
+              "status": "Done",
+              "storyPoint": 6,
+              "owner": {
+                "id": "alex",
+                "name": "Alex"
+              },
+              "taskId": "TASK-03",
+              "priority": "high"
             }
           ]
         }

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "./topbar.module.scss";
 import { HiOutlineViewBoards, HiOutlineSearch } from "react-icons/hi";
-import ProducterIcon from "../../../public/producter";
+import ProducterIcon from "../../../public/icons/producter";
 import { SlEqualizer } from "react-icons/sl";
-
+import { BiFilterAlt } from "react-icons/bi";
 import { CiFilter, CiSquarePlus } from "react-icons/ci";
 import AddTaskCard from "../AddTaskCard/AddTaskCard";
 
@@ -68,7 +68,7 @@ function TopBar() {
                 styles.topbar__header__left_side__icon__controls__control
               }
             >
-              <SlEqualizer />
+              <SlEqualizer size={18}/>
             </button>
 
             <button
@@ -77,7 +77,7 @@ function TopBar() {
                 styles.topbar__header__left_side__icon__controls__filter
               }
             >
-              <CiFilter />
+              <BiFilterAlt size={18} />
             </button>
           </div>
         </div>

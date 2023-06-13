@@ -20,7 +20,7 @@ function App() {
       <div>
         <TopBar />
         <SideBar />
-        <div className="content" style={{marginLeft: "16rem"}}>
+        <div className="content">
           <Routes>
             <Route path="/" element={<Dashboard/>} />
             <Route path="/feedback" element={<FeedBack/>} />

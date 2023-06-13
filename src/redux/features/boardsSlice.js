@@ -1,15 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../../../utils/boardData.json";
+import { getOwnerNameById } from "../../../utils/users";
 
 const boardsSlice = createSlice({
   name: "boards",
   initialState: data.boards,
   reducers: {
     addTask: (state, action) => {
-      const { title, status, description, scrumPoint, owner, taskId, newColIndex } =
-        action.payload;
-      const task = { title, status, description, scrumPoint, owner, taskId };
-      const board = state[0]; 
+      const {
+        title,
+        status,
+        description,
+        storyPoint,
+        owner,
+        priority,
+        taskId,
+        newColIndex,
+      } = action.payload;
+      const task = {
+        title,
+        status,
+        description,
+        storyPoint,
+        priority,
+        owner: {
+          id: owner.id,
+          name: getOwnerNameById(owner.id),
+        },
+        taskId,
+      };
+      const board = state[0];
       const column = board.columns.find((col, index) => index === newColIndex);
       column.tasks.push(task);
     },
@@ -22,7 +42,6 @@ const boardsSlice = createSlice({
       targetCol.tasks.push(task);
     },
   },
-  
 });
 
 export const { addTask, dragTask } = boardsSlice.actions;

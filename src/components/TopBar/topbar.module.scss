@@ -50,6 +50,9 @@
           height: 30px;
           border: 1px solid #f6f9fb;
           transform: rotate(-180deg);
+          @media (max-width: 640px) {
+            display: none;
+          }
         }
 
         &__icon {
@@ -102,7 +105,7 @@
               display: block;
               padding: 0.625rem;
               padding-left: 2.5rem;
-              background-color: rgba($color: #8c97ac, $alpha: 0.2);
+              background-color: rgba($color: #8c97ac, $alpha: 0.1);
               color: #111827;
               width: 100%;
               border-radius: 0.25rem;
@@ -122,20 +125,28 @@
           padding-left: 0.625rem;
 
           &__control {
-            padding: 0.625rem 0.725rem;
-            background-color: rgba($color: #8c97ac, $alpha: 0.2);
+            width: 2.25rem;
+            height: 2.25rem;
+            padding: 0.25rem;
+            background-color: rgba($color: #8c97ac, $alpha: 0.1) !important;
             border-radius: 0.25rem;
             border: none;
-            color: #8c97ac;
+            color: #8c97ac !important;
           }
 
           &__filter {
+            width: 2.25rem;
+            height: 2.25rem;
+            padding: 0.25rem;
             margin-left: 0.25rem;
-            padding: 0.625rem 0.725rem;
-            background-color: rgba($color: #8c97ac, $alpha: 0.2);
+            background-color: rgba($color: #8c97ac, $alpha: 0.1) !important;
             border-radius: 0.25rem;
             border: none;
-            color: #8c97ac;
+            color: #8c97ac !important;
+          }
+
+          @media (max-width: 640px) {
+            display: none;
           }
         }
       }

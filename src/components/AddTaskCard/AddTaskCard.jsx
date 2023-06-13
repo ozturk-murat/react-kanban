@@ -2,16 +2,22 @@ import React from "react";
 import styles from "./addtask.module.scss";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-
-import { addTask } from '../../redux/features/boardsSlice';
+import { addTask } from "../../redux/features/boardsSlice";
+import { users, getOwnerNameById } from "../../../utils/users";
 
 function AddTaskCard({ onClose }) {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    const { title, status, description, scrumPoint, owner, taskId } = data;
+    const { title, status, description, storyPoint, owner, taskId, priority } =
+      data;
     const newColIndex = 0;
 
     dispatch(
@@ -19,9 +25,13 @@ function AddTaskCard({ onClose }) {
         title,
         status,
         description,
-        scrumPoint,
-        owner,
+        storyPoint,
+        owner: {
+          id: owner,
+          name: getOwnerNameById(owner),
+        },
         taskId,
+        priority,
         newColIndex,
       })
     );
@@ -30,11 +40,11 @@ function AddTaskCard({ onClose }) {
   };
 
   return (
-    <div className={styles.cardOverlay}>
-      <div className={styles.cardForm}>
+    <div className={styles.card_overlay}>
+      <div className={styles.card_overlay__card_form}>
         <h2>Add Task</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.formGroup}>
+          <div className={styles.card_overlay__card_form__form_group}>
             <label htmlFor="title">Title</label>
             <input
               type="text"
@@ -43,19 +53,28 @@ function AddTaskCard({ onClose }) {
               className={styles.input}
               {...register("title", { required: true })}
             />
-            {errors.title && <span className={styles.error}>Title is required</span>}
+            {errors.title && (
+              <span className={styles.error}>Title is required</span>
+            )}
           </div>
-          <div className={styles.formGroup}>
+          <div className={styles.card_overlay__card_form__form_group}>
             <label htmlFor="status">Status</label>
-            <select id="status" name="status" {...register("status", { required: true })} className={styles.select}>
+            <select
+              id="status"
+              name="status"
+              {...register("status", { required: true })}
+              className={styles.select}
+            >
               <option value="todo" defaultValue>
                 To Do
               </option>
               <option value="done">Done</option>
             </select>
-            {errors.status && <span className={styles.error}>Status is required</span>}
+            {errors.status && (
+              <span className={styles.error}>Status is required</span>
+            )}
           </div>
-          <div className={styles.formGroup}>
+          <div className={styles.card_overlay__card_form__form_group}>
             <label htmlFor="description">Description</label>
             <textarea
               id="description"
@@ -63,27 +82,38 @@ function AddTaskCard({ onClose }) {
               {...register("description")}
             ></textarea>
           </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="scrumPoint">Scrum Point</label>
+          <div className={styles.card_overlay__card_form__form_group}>
+            <label htmlFor="storyPoint">Scrum Point</label>
             <input
               type="text"
-              id="scrumPoint"
-              name="scrumPoint"
+              id="storyPoint"
+              name="storyPoint"
               className={styles.input}
-              {...register("scrumPoint", { required: true })}
+              {...register("storyPoint", { required: true })}
             />
-            {errors.scrumPoint && <span className={styles.error}>Scrum Point is required</span>}
+            {errors.storyPoint && (
+              <span className={styles.error}>Scrum Point is required</span>
+            )}
           </div>
-          <div className={styles.formGroup}>
+          <div className={styles.card_overlay__card_form__form_group}>
             <label htmlFor="owner">Owner</label>
-            <select id="owner" name="owner" {...register("owner", { required: true })} className={styles.select}>
-              <option value="user1">User 1</option>
-              <option value="user2">User 2</option>
-              <option value="user3">User 3</option>
+            <select
+              id="owner"
+              name="owner"
+              {...register("owner", { required: true })}
+              className={styles.select}
+            >
+              {users.map((user) => (
+                <option key={user.id} value={user.id}>
+                  {user.name}
+                </option>
+              ))}
             </select>
-            {errors.owner && <span className={styles.error}>Owner is required</span>}
+            {errors.owner && (
+              <span className={styles.error}>Owner is required</span>
+            )}
           </div>
-          <div className={styles.formGroup}>
+          <div className={styles.card_overlay__card_form__form_group}>
             <label htmlFor="taskId">Task ID</label>
             <input
               type="text"
@@ -92,10 +122,30 @@ function AddTaskCard({ onClose }) {
               className={styles.input}
               {...register("taskId", { required: true })}
             />
-            {errors.taskId && <span className={styles.error}>Task ID is required</span>}
+            {errors.taskId && (
+              <span className={styles.error}>Task ID is required</span>
+            )}
+          </div>
+          <div className={styles.card_overlay__card_form__form_group}>
+            <label htmlFor="priority">Priority</label>
+            <select
+              id="priority"
+              name="priority"
+              {...register("priority", { required: true })}
+              className={styles.select}
+            >
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+            {errors.priority && (
+              <span className={styles.error}>Priority is required</span>
+            )}
           </div>
           <button type="submit">Add</button>
-          <button type="button" onClick={onClose}>Close</button>
+          <button type="button" onClick={onClose}>
+            Close
+          </button>
         </form>
       </div>
     </div>
