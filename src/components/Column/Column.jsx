@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./column.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { dragTask } from "../../redux/features/boardsSlice";
 import TaskCard from "../TaskCard/TaskCard";
+import { dragTask } from "../../redux/features/boardsSlice";
 import { FaDotCircle, FaCheckCircle } from "react-icons/fa";
 
 function Column({ colIndex }) {
@@ -45,7 +45,7 @@ function Column({ colIndex }) {
       </div>
       <div className={styles.column__divider}></div>
       <div className={styles.column__cards}>
-        {col.tasks.map((index) => (
+        {col.tasks.map((task, index) => (
           <TaskCard key={index} taskIndex={index} colIndex={colIndex} />
         ))}
       </div>
