@@ -33,17 +33,11 @@
         display: flex;
         margin-left: 0.5rem;
         align-items: center;
-
+        text-decoration: none !important;
         margin-right: 6.5rem;
 
         @media (min-width: 768px) {
           margin-right: 5rem;
-        }
-
-        a {
-          :hover {
-            text-decoration: none !important;
-          }
         }
 
         &__divider {

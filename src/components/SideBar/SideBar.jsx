@@ -21,7 +21,7 @@ function SideBar() {
     if (savedActivePage) {
       dispatch(setActivePage(savedActivePage));
     }
-  }, [dispatch]);
+  }, [sessionStorage.getItem("activePage")]);
 
   const handleSetActivePage = (page) => {
     dispatch(setActivePage(page));

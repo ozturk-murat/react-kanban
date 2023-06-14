@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./topbar.module.scss";
 import { HiOutlineSearch } from "react-icons/hi";
 import ProducterIcon from "../../../public/icons/producter";
@@ -6,9 +6,26 @@ import { SlEqualizer } from "react-icons/sl";
 import { BiFilterAlt } from "react-icons/bi";
 import { CiSquarePlus } from "react-icons/ci";
 import AddTaskCard from "../AddTaskCard/AddTaskCard";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setActivePage } from "../../redux/features/slice";
 
 function TopBar() {
   const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
+  const activePage = useSelector((state) => state.activePage);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const savedActivePage = sessionStorage.getItem("activePage");
+    if (savedActivePage) {
+      dispatch(setActivePage(savedActivePage));
+    }
+  }, [dispatch]);
+
+  const handleSetActivePage = (page) => {
+    dispatch(setActivePage(page));
+    sessionStorage.setItem("activePage", page);
+  };
 
   const handleAddTaskToggle = () => {
     setIsAddTaskOpen(!isAddTaskOpen);
@@ -23,7 +40,7 @@ function TopBar() {
       <div className={styles.topbar__header}>
         {/* LEFT SIDE OF TOP BAR*/}
         <div className={styles.topbar__header__left_side}>
-          <a href={"/"} className={styles.topbar__header__left_side__icon}>
+          <Link onClick={() => handleSetActivePage("/")} to={"/"} className={styles.topbar__header__left_side__icon}>
             <ProducterIcon
               className={styles.topbar__header__left_side__icon__icon}
               alt="Producter Logo"
@@ -31,7 +48,7 @@ function TopBar() {
             <span className={styles.topbar__header__left_side__icon__brand}>
               Producter
             </span>
-          </a>
+          </Link>
           <div
             className={styles.topbar__header__left_side__icon__divider}
           ></div>
