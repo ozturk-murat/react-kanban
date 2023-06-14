@@ -19,17 +19,19 @@ function TaskCard({ task, taskIndex, colIndex }) {
   const taskDetails = tasks.tasks.find((task, i) => i === taskIndex);
   const [priorityIcon, setPriorityIcon] = useState(null);
 
-  const ownerImage = (() => {
-    if (taskDetails?.owner?.id === "jane") {
-      return jane;
-    } else if (taskDetails?.owner?.id === "alex") {
-      return alex;
-    } else if (taskDetails?.owner?.id === "neil") {
-      return neil;
-    } else {
-      return "";
-    }
-  })();
+  const ownerImage = taskDetails.owner?.id
+  ? (() => {
+      if (taskDetails.owner.id === "jane") {
+        return jane;
+      } else if (taskDetails.owner.id === "alex") {
+        return alex;
+      } else if (taskDetails.owner.id === "neil") {
+        return neil;
+      } else {
+        return "";
+      }
+    })()
+  : "";
 
   useEffect(() => {
     if (taskDetails.priority === "low") {
