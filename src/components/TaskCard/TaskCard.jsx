@@ -20,11 +20,11 @@ function TaskCard({ task, taskIndex, colIndex }) {
   const [priorityIcon, setPriorityIcon] = useState(null);
 
   const ownerImage = (() => {
-    if (taskDetails.owner && taskDetails.owner.id === "jane") {
+    if (taskDetails?.owner?.id === "jane") {
       return jane;
-    } else if (taskDetails.owner && taskDetails.owner.id === "alex") {
+    } else if (taskDetails?.owner?.id === "alex") {
       return alex;
-    } else if (taskDetails.owner && taskDetails.owner.id === "neil") {
+    } else if (taskDetails?.owner?.id === "neil") {
       return neil;
     } else {
       return "";
