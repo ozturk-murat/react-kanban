@@ -34,14 +34,16 @@ function TaskCard({ task, taskIndex, colIndex }) {
   : "";
 
   useEffect(() => {
-    if (taskDetails.priority === "low") {
-      setPriorityIcon(<PriorityFirst />);
-    } else if (taskDetails.priority === "medium") {
-      setPriorityIcon(<PrioritySecond />);
-    } else if (taskDetails.priority === "high") {
-      setPriorityIcon(<PriorityThird />);
+    if (taskDetails && taskDetails.priority) {
+      if (taskDetails.priority === "low") {
+        setPriorityIcon(<PriorityFirst />);
+      } else if (taskDetails.priority === "medium") {
+        setPriorityIcon(<PrioritySecond />);
+      } else if (taskDetails.priority === "high") {
+        setPriorityIcon(<PriorityThird />);
+      }
     }
-  }, [taskDetails.priority]);
+  }, [taskDetails]);
 
   const handleOnDrag = (e) => {
     e.dataTransfer.setData(
