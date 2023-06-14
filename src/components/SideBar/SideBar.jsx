@@ -10,15 +10,14 @@ import UserImg from "./../../../public/images/neil.png";
 import TeamImg from "./../../../public/images/team.png";
 
 //Utils
-import {sidebarTopData, sidebarBottomData} from "../../../utils/sideBarData";
-
+import { sidebarTopData, sidebarBottomData } from "../../../utils/sideBarData";
 
 function SideBar() {
   const activePage = useSelector((state) => state.activePage);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const savedActivePage = sessionStorage.getItem('activePage');
+    const savedActivePage = sessionStorage.getItem("activePage");
     if (savedActivePage) {
       dispatch(setActivePage(savedActivePage));
     }
@@ -26,7 +25,7 @@ function SideBar() {
 
   const handleSetActivePage = (page) => {
     dispatch(setActivePage(page));
-    sessionStorage.setItem('activePage', page);
+    sessionStorage.setItem("activePage", page);
   };
 
   return (
@@ -85,7 +84,7 @@ function SideBar() {
         <div className={styles.sidebar__inside__bottom}>
           <div className={styles.sidebar__inside__bottom__list}>
             <ul>
-            {sidebarBottomData.map((item) => {
+              {sidebarBottomData.map((item) => {
                 const IconComponent = item.icon;
                 return (
                   <li

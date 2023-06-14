@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./taskcard.module.scss";
+
+//assets
 import { FaTasks } from "react-icons/fa";
-import { users } from "../../../utils/users";
+import jane from "./../../../public/images/jane.png";
+import alex from "./../../../public/images/alex.png";
+import neil from "./../../../public/images/neil.png";
 import {
   PriorityFirst,
   PrioritySecond,
@@ -14,8 +18,18 @@ function TaskCard({ task, taskIndex, colIndex }) {
   const tasks = boards[0].columns.find((column, index) => index === colIndex);
   const taskDetails = tasks.tasks.find((task, i) => i === taskIndex);
   const [priorityIcon, setPriorityIcon] = useState(null);
-  const ownerImage = users.find((user) => user.id === taskDetails.owner.id)
-  ?.imagePath;
+
+  const ownerImage = (() => {
+    if (taskDetails.owner && taskDetails.owner.id === "jane") {
+      return jane;
+    } else if (taskDetails.owner && taskDetails.owner.id === "alex") {
+      return alex;
+    } else if (taskDetails.owner && taskDetails.owner.id === "neil") {
+      return neil;
+    } else {
+      return "";
+    }
+  })();
 
   useEffect(() => {
     if (taskDetails.priority === "low") {
@@ -55,7 +69,7 @@ function TaskCard({ task, taskIndex, colIndex }) {
               {taskDetails.storyPoint}
             </div>
             <div className={styles.card__bottom__right__user_image}>
-            <img src={ownerImage} alt="User" />
+              <img src={ownerImage} alt="User" />
             </div>
           </div>
         </div>

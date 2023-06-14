@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../../../utils/boardData.json";
 import { getOwnerNameById } from "../../../utils/users";
+import { toast } from "react-toastify";
 
 const boardsSlice = createSlice({
   name: "boards",
@@ -40,6 +41,14 @@ const boardsSlice = createSlice({
       const task = prevCol.tasks.splice(taskIndex, 1)[0];
       const targetCol = board.columns.find((col, i) => i === colIndex);
       targetCol.tasks.push(task);
+
+      if (targetCol.name === "Done") {
+        task.status = "Done";
+        toast.success("Task moved to Done!");
+      } else if (targetCol.name === "Todo") {
+        task.status = "Todo";
+        toast.info("Task moved to Todo!");
+      }
     },
   },
 });
