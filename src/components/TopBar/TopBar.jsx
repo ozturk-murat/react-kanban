@@ -9,6 +9,7 @@ import AddTaskCard from "../AddTaskCard/AddTaskCard";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setActivePage } from "../../redux/features/slice";
+import { BsKanban } from "react-icons/bs"
 
 function TopBar() {
   const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
@@ -41,12 +42,9 @@ function TopBar() {
         {/* LEFT SIDE OF TOP BAR*/}
         <div className={styles.topbar__header__left_side}>
           <Link onClick={() => handleSetActivePage("/")} to={"/"} className={styles.topbar__header__left_side__icon}>
-            <ProducterIcon
-              className={styles.topbar__header__left_side__icon__icon}
-              alt="Producter Logo"
-            />
+            <BsKanban size={24} className={styles.topbar__header__left_side__icon__icon}/>
             <span className={styles.topbar__header__left_side__icon__brand}>
-              Producter
+              Kanban UI
             </span>
           </Link>
           <div

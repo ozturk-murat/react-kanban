@@ -6,9 +6,9 @@ import { BsPlusLg, BsChatLeftText } from "react-icons/bs";
 import { VscBell } from "react-icons/vsc";
 
 const sidebarTopData = [
-  { id: 1, name: "Dashboard", path: "/", icon: FiHome },
+  { id: 1, name: "Dashboard", path: "/dashboard", icon: FiHome },
   { id: 2, name: "Feedback", path: "/feedback", icon: BsChat },
-  { id: 3, name: "Task", path: "/task", icon: BsCardChecklist },
+  { id: 3, name: "Task", path: "/", icon: BsCardChecklist },
   { id: 4, name: "Roadmap", path: "/roadmap", icon: SlCompass },
   { id: 5, name: "Changelog", path: "/changelog", icon: IoIosRepeat },
 ];

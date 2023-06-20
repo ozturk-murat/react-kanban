@@ -28,9 +28,9 @@ function App() {
         <SideBar />
         <div className="content">
           <Routes>
-            <Route path="/" element={<Dashboard/>} />
+            <Route path="/" element={<Task/>} />
             <Route path="/feedback" element={<FeedBack/>} />
-            <Route path="/task" element={<Task/>} />
+            <Route path="/dashboard" element={<Dashboard/>} />
             <Route path="/roadmap" element={<RoadMap/>} />
             <Route path="/changelog" element={<Changelog/>} />
             <Route path="/invite-people" element={<InvitePeople/>} />
